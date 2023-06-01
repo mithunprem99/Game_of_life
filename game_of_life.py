@@ -13,3 +13,12 @@ def initialize_grid(size, prob):
                 row.append(0)
         grid.append(row)
     return grid
+
+def calculate_next_state(cell, neighbors):
+    num_alive = sum(neighbors)
+    if cell == 1 and (num_alive == 2 or num_alive == 3):
+        return 1
+    elif cell == 0 and num_alive == 3:
+        return 1
+    else:
+        return 1
