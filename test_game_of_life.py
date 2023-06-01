@@ -21,21 +21,22 @@ def test_get_neighbor():
     assert game_of_life.get_neighbors(board,1,1)==2
 
 
-def update_board(board):
-    rows = len(board)
-    cols = len(board[0])
-    updated_board = initialize_grid(rows, cols)
-    for i in range(rows):
-        for j in range(cols):
-            live_neighbors = get_neighbors(board, i, j)
-            if board[i][j] == 1:
-                if live_neighbors < 2 or live_neighbors > 3:
-                    updated_board[i][j] = 0
-                else:
-                    updated_board[i][j] = 1
-            else:
-                if live_neighbors == 3:
-                    updated_board[i][j] = 1
-                else:
-                    updated_board[i][j] = 0
-    return updated_board
+def test_update_board():
+    grid = [[0, 1, 0], [0, 1, 0], [0, 1, 0]]
+    new_grid = game_of_life.update_board(grid)
+    expected_grid = [[0, 1, 0], [1, 1, 1], [0, 1, 0]]
+
+    assert new_grid == expected_grid[::-1]
+def test_update_board():
+    grid = [[0, 1, 0], [0, 1, 0], [0, 1, 0]]
+    new_grid = game_of_life.update_board(grid)
+    expected_grid = [[0, 0, 0], [1, 1, 1], [0, 0, 0]]
+    assert new_grid == expected_grid
+
+
+
+
+    assert new_grid == expected_grid
+    new_grid = game_of_life.update_board(new_grid)
+    expected_grid = [[0, 1, 0], [0, 1, 0], [0, 1, 0]]
+    assert new_grid == expected_grid

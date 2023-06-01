@@ -32,3 +32,5 @@ def calculate_next_state(cell, neighbors):
         return 1
     else:
         return 1
+
+
