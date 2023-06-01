@@ -64,3 +64,18 @@ def render_grid(grid):
             else:
                 row += '*'
         print(row)
+
+
+def main():
+    size = 10
+    prob = 0.3
+    num_generations = 20
+    
+    grid = initialize_grid(size, prob)
+    for i in range(num_generations):
+        render_grid(grid)
+        time.sleep(0.5)
+        grid = update_board(grid)
+
+if __name__ == '__main__':
+    main()
