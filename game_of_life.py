@@ -52,3 +52,15 @@ def update_board(board):
                 else:
                     updated_board[i][j] = 0
     return updated_board
+
+
+def render_grid(grid):
+    size = len(grid)
+    for i in range(size):
+        row = ''
+        for j in range(size):
+            if grid[i][j] == 1:
+                row += '#'
+            else:
+                row += '*'
+        print(row)
