@@ -40,3 +40,10 @@ def test_update_board():
     new_grid = game_of_life.update_board(new_grid)
     expected_grid = [[0, 1, 0], [0, 1, 0], [0, 1, 0]]
     assert new_grid == expected_grid
+
+
+def test_render_grid(capsys):
+    grid = [[0, 1, 0], [0, 1, 0], [0, 1, 0]]
+    game_of_life.render_grid(grid)
+    captured = capsys.readouterr()
+    assert captured.out == '*#*\n*#*\n*#*\n'
