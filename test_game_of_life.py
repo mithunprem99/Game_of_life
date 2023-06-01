@@ -19,3 +19,23 @@ def test_calculate_next_state():
 def test_get_neighbor():
     board=[[0, 1, 0], [0, 1, 0], [0, 1, 0]]
     assert game_of_life.get_neighbors(board,1,1)==2
+
+
+def update_board(board):
+    rows = len(board)
+    cols = len(board[0])
+    updated_board = initialize_grid(rows, cols)
+    for i in range(rows):
+        for j in range(cols):
+            live_neighbors = get_neighbors(board, i, j)
+            if board[i][j] == 1:
+                if live_neighbors < 2 or live_neighbors > 3:
+                    updated_board[i][j] = 0
+                else:
+                    updated_board[i][j] = 1
+            else:
+                if live_neighbors == 3:
+                    updated_board[i][j] = 1
+                else:
+                    updated_board[i][j] = 0
+    return updated_board
