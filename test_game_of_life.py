@@ -15,3 +15,7 @@ def test_calculate_next_state():
     cell = 1
     neighbors = [1, 0, 1, 0, 0, 1, 1, 0]
     assert game_of_life.calculate_next_state(cell, neighbors) == 1
+
+def test_get_neighbor():
+    board=[[0, 1, 0], [0, 1, 0], [0, 1, 0]]
+    assert game_of_life.get_neighbors(board,1,1)==2
