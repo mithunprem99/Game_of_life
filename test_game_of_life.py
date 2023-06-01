@@ -9,3 +9,9 @@ def test_initialize_grid():
     assert len(grid) == size
     for row in grid:
         assert len(row) == size
+
+
+def test_calculate_next_state():
+    cell = 1
+    neighbors = [1, 0, 1, 0, 0, 1, 1, 0]
+    assert game_of_life.calculate_next_state(cell, neighbors) == 1
